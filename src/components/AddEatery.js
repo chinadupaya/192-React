@@ -11,12 +11,28 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/20/20: Annysia Dupaya - Created component
 1/25/20: Annysia Dupaya - Integrated with API
+1/28/20: Dylan Bayona - Reviewed code
+
+---ABOUT---
+File creation date: 1/20/20
+Development Group: Group 1 - RUPE
+Client Group: Ma. Rowena C. Solamo
+This React.js component is for adding an eatery. This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
+
+/* ---METHOD---
+Name: useStyles
+Routine creation date: 1/20/20
+Purpose of the routine: Used to apply styles to this component
+List of calling arguments: theme
+List of required files/database tables: N/A
+Return value: N/A
+*/
 const useStyles = makeStyles(theme => ({
     root: {
       '& .MuiTextField-root': {
@@ -25,10 +41,25 @@ const useStyles = makeStyles(theme => ({
       },
     },
   }));
+
+/* ---METHOD---
+Name: AddEatery
+Routine creation date: 1/20/20
+Purpose of the routine: Provides functionality to add eatery
+List of calling arguments: props
+List of required files/database tables: N/A
+Return value: form with pertinent fields
+*/
 const AddEatery = (props) =>{
-    const classes=useStyles();
-    let formFields = {}
-    return (
+     /* ---VARIABLE---
+     classes; holds useStyles variable
+     */
+     const classes=useStyles();
+     /* ---VARIABLE---
+     formFields; contains the fields of the addEatery form
+     */
+     let formFields = {}
+     return (
         <form className ={classes.root} noValidate autoComplete="off" 
         onSubmit={(e)=> {props.handleEaterySubmit(formFields.name.value,
             formFields.address.value, 
