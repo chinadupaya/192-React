@@ -10,7 +10,9 @@ of the Philippines, Diliman for the AY 2019-
 
 ---HISTORY---
 1/25/20: Annysia Dupaya - Created component
-1/26/20: Annysia Dupaya - Integrated with API*/
+1/26/20: Annysia Dupaya - Integrated with API
+1/29/20: Dylan Bayona - Reviewed code
+*/
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -18,6 +20,15 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+
+/* ---METHOD---
+Name: useStyles
+Routine creation date: 1/20/20
+Purpose of the routine: Used to apply styles to this component
+List of calling arguments: theme
+List of required files/database tables: N/A
+Return value: N/A
+*/
 const useStyles = makeStyles(theme => ({
     root: {
       '& .MuiTextField-root': {
@@ -28,10 +39,30 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
+/* ---METHOD---
+Name: AddReview
+Routine creation date: 1/20/20
+Purpose of the routine: Provides functionality to add review to an eatery
+List of calling arguments: props
+List of required files/database tables: N/A
+Return value: form with pertinent fields
+*/
 const AddReview = (props) =>{
+    /* ---VARIABLE---
+    [value, setValue]; gets and stores state 
+    */
     const [value, setValue] = React.useState(2);
+    
+    /* ---VARIABLE---
+    classes; holds useStyles variable
+    */
     const classes=useStyles();
+    
+    /* ---VARIABLE---
+    formFields; contains the fields of the addEatery form
+    */    
     let formFields = {}
+    
     return (
             <form className ={classes.root} noValidate autoComplete="off" 
             onSubmit={(e)=> {props.handleReviewSubmit(formFields.review_text.value,
