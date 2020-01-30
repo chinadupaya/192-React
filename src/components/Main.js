@@ -54,7 +54,7 @@ class Main extends Component{
     Routine creation date: 1/20/20
     Purpose of the routine: Provides functionality to get eatery information from backend
     List of calling arguments: name, address, contact
-    List of required files/database tables: 
+    List of required files/database tables: Eatery
     Return value: JSON response
     */
     handleEaterySubmit(name, address, contact){
