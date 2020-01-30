@@ -56,7 +56,8 @@ Return value: form with pertinent fields
 */
 const AddReview = (props) =>{
     /* ---VARIABLE---
-    [value, setValue]; gets and stores state 
+    value; contains state
+    setValue; used to change state
     */
     const [value, setValue] = React.useState(2);
     
