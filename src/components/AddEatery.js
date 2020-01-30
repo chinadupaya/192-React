@@ -69,7 +69,7 @@ const AddEatery = (props) =>{
         <form className ={classes.root} noValidate autoComplete="off" 
         onSubmit={(e)=> {props.handleEaterySubmit(formFields.name.value,
             formFields.address.value, 
-            formFields.contact.value);
+            phone);
             e.target.reset();}}>
             <div className="field">
                 <TextField id="outlined-basic" inputRef={input => formFields.name = input} label="Name" variant="outlined" />
@@ -132,7 +132,12 @@ const AddEatery = (props) =>{
                 </Select>
             </div>
             <div className="field">
-            <MuiPhoneNumber inputRef={input => formFields.contact = input} value={phone} defaultCountry={'ph'} onlyCountries={['ph']}  onChange={(e)=>{setPhone(e);}}/>
+            <MuiPhoneNumber 
+                //inputRef={input => formFields.contact = input} 
+                value = {phone}
+                defaultCountry={'ph'} 
+                onlyCountries={['ph']} 
+                onChange={(e)=>{setPhone(e);}}/>
             </div>
             <button className="ui primary button"type="submit">Submit</button>
 
