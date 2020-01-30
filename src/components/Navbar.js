@@ -11,7 +11,15 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/20/20: Annysia Dupaya - Created component
 1/21/20: Annysia Dupaya - Added styling
-1/25/20: Annysia Dupaya - Fixed routes*/
+1/25/20: Annysia Dupaya - Fixed routes
+
+---ABOUT---
+File creation date: 1/20/20
+Development Group: Group 1 - RUPE
+Client Group: Ma. Rowena C. Solamo
+This React.js component is for the styling and placement of the navigation bar.
+This software's overall purpose is to provide a clean frontend for our system, RUPE.
+*/
 import React from 'react';
 import {
   Link
@@ -30,6 +38,15 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import red from '@material-ui/core/colors/red';
 import orange from '@material-ui/core/colors/orange';
 import grey from '@material-ui/core/colors/grey';
+
+/* ---METHOD---
+Name: useStyles
+Routine creation date: 1/20/20
+Purpose of the routine: Used to apply styles to this component
+List of calling arguments: theme
+List of required files/database tables: N/A
+Return value: N/A
+*/
 const useStyles = makeStyles(theme => ({
     grow: {
       flexGrow: 1
@@ -82,20 +99,76 @@ const useStyles = makeStyles(theme => ({
         },
       },
 }));
+
+/* ---METHOD---
+Name: Navbar
+Routine creation date: 1/20/20
+Purpose of the routine: Used to apply styles and placement to navbar
+List of calling arguments: N/A
+List of required files/database tables: N/A
+Return value: rendered navbar
+*/
 export default function Navbar() {
+    /* ---VARIABLE---
+    classes; holds useStyles variable
+    */    
     const classes = useStyles();
+  
+    /* ---VARIABLE---
+    anchorEl; contains anchor
+    setAnchorEl; used to change anchor
+    */    
     const [anchorEl, setAnchorEl] = React.useState(null);
+  
+    /* ---VARIABLE---
+    mobileMoreAnchorEl; contains mobile anchor
+    setmobileMoreAnchorEl; used to change mobile anchor
+    */      
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     /*const isMenuOpen = Boolean(anchorEl); */
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   
+    /* ---VARIABLE---
+    isMobileMenuOpen; holds boolean value 
+    */  
+    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    
+    /* ---VARIABLE---
+    mobileMenuId; holds mobile menu ID
+    */      
     const mobileMenuId = 'primary-search-account-menu-mobile';
+  
+    /* ---METHOD---
+    Name: handleMobileMenuOpen
+    Routine creation date: 1/20/20
+    Purpose of the routine: Handles event where menu is opened on mobile
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: rendered menu
+    */    
     const handleMobileMenuOpen = event => {
       setMobileMoreAnchorEl(event.currentTarget);
     };
+
+    /* ---METHOD---
+    Name: handleMobileMenuClose
+    Routine creation date: 1/20/20
+    Purpose of the routine: Handles event where menu is closed on mobile
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: rendered menu
+    */      
     const handleMobileMenuClose = () => {
       setMobileMoreAnchorEl(null);
     };
+  
+    /* ---METHOD---
+    Name: renderMobileMenu
+    Routine creation date: 1/20/20
+    Purpose of the routine: Renders menu on mobile
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: rendered menu
+    */      
     const renderMobileMenu = (
       <Menu anchorEl={mobileMoreAnchorEl}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
