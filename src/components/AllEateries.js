@@ -12,6 +12,13 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/20/20: Annysia Dupaya - Created component
 1/25/20: Annysia Dupaya - Integrated with API
+
+---ABOUT---
+File creation date: 1/20/20
+Development Group: Group 1 - RUPE
+Client Group: Ma. Rowena C. Solamo
+This React.js component fetches and displays all of the eateries
+This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
 import React from 'react';  
 import Typography from '@material-ui/core/Typography';
@@ -29,7 +36,14 @@ import '../stylesheets/AllEateries.css';
 import orange from '@material-ui/core/colors/orange';
 import grey from '@material-ui/core/colors/grey';
 
-
+/* ---METHOD---
+Name: AllEateries
+Routine creation date: 1/20/20
+Purpose of the routine: Communicates with the backend API for all of the eateries
+List of calling Arguments: props
+List of required files/database tables: N/A
+Return value: Rendered page
+*/
 const AllEateries = (props) =>{
     var eateries = props.eateries.map((eatery)=>{
         return(
