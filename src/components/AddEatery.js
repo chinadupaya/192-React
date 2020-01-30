@@ -12,14 +12,15 @@ of the Philippines, Diliman for the AY 2019-
 1/20/20: Annysia Dupaya - Created component
 1/25/20: Annysia Dupaya - Integrated with API
 1/28/20: Dylan Bayona - Reviewed code
-
+1/30/20: Annysia Dupaya - improved phone input
 ---ABOUT---
 File creation date: 1/20/20
 Development Group: Group 1 - RUPE
 Client Group: Ma. Rowena C. Solamo
 This React.js component is for adding an eatery. This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
-import React from 'react';
+import React, {useState} from 'react';
+import MuiPhoneNumber from 'material-ui-phone-number';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
         width: 200,
       },
     },
-  }));
+}));
 
 /* ---METHOD---
 Name: AddEatery
@@ -51,6 +52,11 @@ List of required files/database tables: N/A
 Return value: form with pertinent fields
 */
 const AddEatery = (props) =>{
+     /* ---VARIABLE---
+     phone; contains state of phone input
+     setPhone; used to change state of phone input
+     */
+    const [phone, setPhone] = useState();
      /* ---VARIABLE---
      classes; holds useStyles variable
      */
@@ -126,16 +132,7 @@ const AddEatery = (props) =>{
                 </Select>
             </div>
             <div className="field">
-                <TextField
-                    inputRef={input => formFields.contact = input}
-                    id="outlined-number"
-                    label="Contact No."
-                    type="number"
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                    variant="outlined"
-                />
+            <MuiPhoneNumber inputRef={input => formFields.contact = input} value={phone} defaultCountry={'ph'} onlyCountries={['ph']}  onChange={(e)=>{setPhone(e);}}/>
             </div>
             <button className="ui primary button"type="submit">Submit</button>
 
