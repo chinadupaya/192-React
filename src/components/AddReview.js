@@ -12,6 +12,13 @@ of the Philippines, Diliman for the AY 2019-
 1/25/20: Annysia Dupaya - Created component
 1/26/20: Annysia Dupaya - Integrated with API
 1/29/20: Dylan Bayona - Reviewed code
+
+---ABOUT---
+File creation date: 1/20/20
+Development Group: Group 1 - RUPE
+Client Group: Ma. Rowena C. Solamo
+This React.js component is for adding a review to an eatery. 
+This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
