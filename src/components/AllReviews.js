@@ -11,9 +11,25 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/25/20: Annysia Dupaya - Created component
 1/26/20: Annysia Dupaya - Integrated with API
+
+---ABOUT---
+File creation date: 1/20/20
+Development Group: Group 1 - RUPE
+Client Group: Ma. Rowena C. Solamo
+This React.js component displays all of the reviews of an eatery
+This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
 import React from 'react';
 import StarIcon from '@material-ui/icons/Star';
+
+/* ---METHOD---
+Name: AllReviews
+Routine creation date: 1/20/20
+Purpose of the routine: Formats the look of the review
+List of calling arguments: props
+List of required files/database tables: N/A
+Return value: Rendered page
+*/
 const AllReviews = (props) =>{
     var reviews = props.reviews.map((review)=>{
         var stars = [];
