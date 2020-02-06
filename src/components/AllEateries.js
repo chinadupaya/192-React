@@ -12,6 +12,7 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/20/20: Annysia Dupaya - Created component
 1/25/20: Annysia Dupaya - Integrated with API
+2/6/20: Annysia Dupaya - DOes not show eatery if flagged
 */
 import React from 'react';  
 import Typography from '@material-ui/core/Typography';
@@ -32,6 +33,9 @@ import grey from '@material-ui/core/colors/grey';
 
 const AllEateries = (props) =>{
     var eateries = props.eateries.map((eatery)=>{
+        if(eatery.flag){
+            return null;
+        }
         return(
             <Box key={eatery.id} className = 'eateryBox' border={1} borderColor={grey[300]}>
                 <div className='subBox'>
@@ -60,9 +64,6 @@ const AllEateries = (props) =>{
                 <Route exact path="/eatery" render={()=>(<div className = 'eateriesContainer'>{eateries}</div>)}/>
                 <Route path="/eatery/:id" component={Eatery}/>
              </Switch>
-            {/* <Switch>
-                <Route exact path = '${match.path}/all'><div>{eateries}</div> </Route>
-            </Switch>  */}  
         </div>
     )
 }

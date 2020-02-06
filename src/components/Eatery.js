@@ -11,6 +11,7 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/20/20: Annysia Dupaya - Created component
 1/25/20: Annysia Dupaya - Integrated with API
+2/6/20: Annysia Dupaya - Added Flag Eatery
 */
 import React, { Component } from 'react';
 import Typography from '@material-ui/core/Typography';
@@ -18,9 +19,11 @@ import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import PlaceIcon from '@material-ui/icons/Place';
 import AllReviews from './AllReviews';
 import AddReview from './AddReview';
+import FlagEatery from './FlagEatery';
 import Box from '@material-ui/core/Box';
 import '../stylesheets/Eatery.css';
 import StarIcon from '@material-ui/icons/Star';
+
 
 export default class Eatery extends Component {
     constructor(props){
@@ -30,7 +33,8 @@ export default class Eatery extends Component {
             reviews:[]
         };
         this.handleReviewSubmit = this.handleReviewSubmit.bind(this);
-        this.addNewReview = this.addNewReview.bind(this)
+        this.addNewReview = this.addNewReview.bind(this);
+        this.handleEateryFlag = this.handleEateryFlag.bind(this);
     }
     handleReviewSubmit(review_text, rating){
         let body = {review_text:review_text, rating:rating};
@@ -48,6 +52,18 @@ export default class Eatery extends Component {
         this.setState({
             reviews: this.state.reviews.concat(review)
         })
+    }
+    handleEateryFlag(why_flag){
+        console.log("PLEASE WORK GOD");
+        let body = {why_flag:why_flag};
+        fetch('http://localhost:5000/eatery/'+this.props.match.params.id+'/flag',{
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body:JSON.stringify(body)
+        }).then((response)=>{return response.json()});
+        this.props.history.push('/eatery');
     }
     componentDidMount(){
         fetch('http://localhost:5000/eatery/'+this.props.match.params.id)
@@ -72,6 +88,7 @@ export default class Eatery extends Component {
                             <PhoneAndroidIcon/>{eatery.contact}
                         </Typography>
                         <p><PlaceIcon/>{eatery.address}</p>
+                        <FlagEatery handleEateryFlag={this.handleEateryFlag}/>
                     </Box>
                     <Box className='subBox right'>
                         <Typography

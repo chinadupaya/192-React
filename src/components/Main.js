@@ -58,7 +58,6 @@ class Main extends Component{
     Return value: JSON response
     */
     handleEaterySubmit(name, address, contact){
-        console.log("name: "+name + " address:" + address + " contact: " + contact)
         /* ---VARIABLE---
         body; contains the name, address, and contact info of the eatery 
         */
