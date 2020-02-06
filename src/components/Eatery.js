@@ -24,7 +24,6 @@ import Box from '@material-ui/core/Box';
 import '../stylesheets/Eatery.css';
 import StarIcon from '@material-ui/icons/Star';
 
-
 export default class Eatery extends Component {
     constructor(props){
         super(props);
