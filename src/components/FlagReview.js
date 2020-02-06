@@ -10,9 +10,7 @@ of the Philippines, Diliman for the AY 2019-
 2020 
 
 ---HISTORY---
-2/4/20: Annysia Dupaya - Created component
-2/5/20: Annysia DUpaya - linked to Database
-2/6/20: ANnysia Dupaya - Added notification after flagging
+2/6/20: ANnysia Dupaya - Created component
 */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,8 +24,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {Link} from 'react-router-dom';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -44,11 +41,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function FlagEatery(props) {
+
+export default function FlagReview(props) {
   const classes = useStyles();
-  const notify = () => {
-    toast.success("Your report has been submitted you can no longer see this eatery.");
-  }
+
   let formFields = {};
   const [value, setValue] = React.useState('rude');
 
@@ -68,7 +64,7 @@ export default function FlagEatery(props) {
   return (
     <div>
         <Typography component={Link} onClick={handleOpen} color="inherit">
-            <FlagIcon/>Flag this eatery
+            <FlagIcon/>Flag this review
         </Typography>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -86,10 +82,10 @@ export default function FlagEatery(props) {
           
           <div className={classes.paper}>
             <form noValidate autoComplete="off"
-                onSubmit={(e)=> {props.handleEateryFlag(value + ": " + formFields.why_flag_text.value);
+                onSubmit={(e)=> {props.handleReviewFlag(value + ": " + formFields.why_flag_text.value);
                 e.target.reset();}}>
               <Typography component="h4"variant="h4">
-                What's wrong with this eatery?
+                What's wrong with this review?
               </Typography>
               <div className="field">
                 <RadioGroup aria-label="flag issues" name="flageatery" value={value} onChange={handleChange}>
@@ -106,7 +102,7 @@ export default function FlagEatery(props) {
                     inputRef={input => formFields.why_flag_text = input}
                     style={{width:"100%"}}/>
               </div> 
-              <button onClick={notify} className="ui primary button"type="submit">Submit Report</button>  
+              <button className="ui primary button"type="submit">Submit Report</button>  
             </form>
           </div>
         </Fade>

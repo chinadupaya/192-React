@@ -53,7 +53,6 @@ export default class Eatery extends Component {
         })
     }
     handleEateryFlag(why_flag){
-        console.log("PLEASE WORK GOD");
         let body = {why_flag:why_flag};
         fetch('http://localhost:5000/eatery/'+this.props.match.params.id+'/flag',{
             method: 'PUT',
