@@ -12,6 +12,7 @@ of the Philippines, Diliman for the AY 2019-
 1/20/20: Annysia Dupaya - Created component, linked with other components
 1/25/20: Annysia Dupaya - Integrated API
 1/29/20: Dylan Bayona - Reviewed code
+2/6/20: Annysia Dupaya - Added ToastContainer
 
 ---ABOUT---
 File creation date: 1/20/20
@@ -31,6 +32,7 @@ import Navbar from './Navbar';
 import AddEatery from './AddEatery';
 import AllEateries from './AllEateries';
 import Footer from './Footer';
+
 class Main extends Component{
     /* ---METHOD---
     Name: constructor
@@ -58,7 +60,6 @@ class Main extends Component{
     Return value: JSON response
     */
     handleEaterySubmit(name, address, contact){
-        console.log("name: "+name + " address:" + address + " contact: " + contact)
         /* ---VARIABLE---
         body; contains the name, address, and contact info of the eatery 
         */
@@ -72,6 +73,7 @@ class Main extends Component{
             this.addNewEatery(eatery)
         })
     }
+
     
     /* ---METHOD---
     Name: addNewEatery
