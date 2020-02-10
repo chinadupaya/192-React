@@ -31,6 +31,8 @@ import FlagEatery from './FlagEatery';
 import Box from '@material-ui/core/Box';
 import '../stylesheets/Eatery.css';
 import StarIcon from '@material-ui/icons/Star';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class Eatery extends Component {
     /* ---METHOD---
@@ -74,6 +76,7 @@ export default class Eatery extends Component {
         .then((review)=>{
             this.addNewReview(review)
         })
+        this.props.flagCheck();
     }
     
     /* ---METHOD---
@@ -89,8 +92,21 @@ export default class Eatery extends Component {
             reviews: this.state.reviews.concat(review)
         })
     }
-    
+    /* ---METHOD---
+    Name: handleEateryFlag
+    Routine creation date: 2/6/20
+    Purpose of the routine: Provides functionality to submit flagged eatery info to the backend
+    List of calling arguments: why_flag
+    List of required files/database tables: Eatery
+    Return value: JSON response
+    */
     handleEateryFlag(why_flag){
+        /* ---VARIABLE---
+        body: contains the reason to flag the eatery
+        */  
+       const notify = () => {
+        toast.success("Your report has been submitted you can no longer see this eatery.");
+      }
         let body = {why_flag:why_flag};
         fetch('http://localhost:5000/eatery/'+this.props.match.params.id+'/flag',{
             method: 'PUT',
@@ -99,7 +115,12 @@ export default class Eatery extends Component {
             },
             body:JSON.stringify(body)
         }).then((response)=>{return response.json()});
-        this.props.history.push('/eatery');
+        
+        this.props.history.push("/eatery"); 
+         
+        notify();
+        this.props.flagCheck2();
+        
     }
 
     /* ---METHOD---

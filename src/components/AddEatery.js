@@ -70,7 +70,7 @@ const AddEatery = (props) =>{
         <form className ={classes.root} noValidate autoComplete="off" 
         onSubmit={(e)=> {props.handleEaterySubmit(formFields.name.value,
             formFields.address.value, 
-            phone);
+            phone+"");
             e.target.reset();}}>
             <div className="field">
                 <TextField id="outlined-basic" inputRef={input => formFields.name = input} label="Name" variant="outlined" />

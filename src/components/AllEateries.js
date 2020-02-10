@@ -46,6 +46,9 @@ List of required files/database tables: N/A
 Return value: Rendered page
 */
 const AllEateries = (props) =>{
+    const flagCheck2 = ()=>{
+        props.flagCheck();
+    }
     var eateries = props.eateries.map((eatery)=>{
         if(eatery.flag){
             return null;
@@ -76,8 +79,8 @@ const AllEateries = (props) =>{
         <div className = "ui cards">
             <Switch>
                 <Route exact path="/eatery" render={()=>(<div className = 'eateriesContainer'>{eateries}</div>)}/>
-                <Route path="/eatery/:id" component={Eatery}/>
-             </Switch>
+                <Route path="/eatery/:id" render ={(props)=><Eatery {...props} flagCheck2={flagCheck2}/>}/>
+            </Switch>
         </div>
     )
 }

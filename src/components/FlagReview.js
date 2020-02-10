@@ -24,9 +24,9 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {Link} from 'react-router-dom';
-
-
-
+/* ---VARIABLE---
+  useStyles: contains the styling of this component
+*/  
 const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
@@ -44,13 +44,21 @@ const useStyles = makeStyles(theme => ({
 
 export default function FlagReview(props) {
   const classes = useStyles();
-
+  /* ---VARIABLE---
+    formFields: contains the values for the form
+  */  
   let formFields = {};
+  /* ---VARIABLE---
+    value: contains the state of the form
+  */  
   const [value, setValue] = React.useState('rude');
 
   const handleChange = event => {
     setValue(event.target.value);
   };
+  /* ---VARIABLE---
+    [open, setOpen]: changes the state of the modal if visible or not
+  */  
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -82,8 +90,8 @@ export default function FlagReview(props) {
           
           <div className={classes.paper}>
             <form noValidate autoComplete="off"
-                onSubmit={(e)=> {props.handleReviewFlag(value + ": " + formFields.why_flag_text.value);
-                e.target.reset();}}>
+                onSubmit={(e)=> {e.preventDefault();props.handleReviewFlag(value + ": " + formFields.why_flag_text.value);
+                }}>
               <Typography component="h4"variant="h4">
                 What's wrong with this review?
               </Typography>

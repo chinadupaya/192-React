@@ -26,8 +26,6 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {Link} from 'react-router-dom';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 
 const useStyles = makeStyles(theme => ({
@@ -46,9 +44,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function FlagEatery(props) {
   const classes = useStyles();
-  const notify = () => {
-    toast.success("Your report has been submitted you can no longer see this eatery.");
-  }
   let formFields = {};
   const [value, setValue] = React.useState('rude');
 
@@ -106,7 +101,7 @@ export default function FlagEatery(props) {
                     inputRef={input => formFields.why_flag_text = input}
                     style={{width:"100%"}}/>
               </div> 
-              <button onClick={notify} className="ui primary button"type="submit">Submit Report</button>  
+              <button className="ui primary button"type="submit">Submit Report</button>  
             </form>
           </div>
         </Fade>

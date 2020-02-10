@@ -46,11 +46,16 @@ class Main extends Component{
         super(props);
         this.state={
             eateries:[]
-        };
+        };  
         this.handleEaterySubmit = this.handleEaterySubmit.bind(this)
         this.addNewEatery = this.addNewEatery.bind(this)
+        this.flagCheck = this.flagCheck.bind(this)
+
     }
-    
+    flagCheck(){
+        console.log("iscalled");
+        window.location.reload(true);
+    }
     /* ---METHOD---
     Name: handleEaterySubmit
     Routine creation date: 1/20/20
@@ -72,6 +77,7 @@ class Main extends Component{
         .then((eatery)=>{
             this.addNewEatery(eatery)
         })
+        
     }
 
     
@@ -97,8 +103,8 @@ class Main extends Component{
     List of required files/database tables: N/A
     Return value: JSON response
     */
-    componentDidMount(){
-        fetch('http://localhost:5000/eatery')
+    async componentDidMount(){
+       await fetch('http://localhost:5000/eatery')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ eateries: data }) });
     }
@@ -119,7 +125,7 @@ class Main extends Component{
                     <Switch>
                         <Route exact path="/" component={Landing}/>
                         <Route path="/eatery">
-                            <AllEateries eateries={this.state.eateries}/>
+                            <AllEateries flagCheck = {this.flagCheck} eateries={this.state.eateries}/>
                         </Route>
                         <Route path="/add-eatery">
                             <AddEatery handleEaterySubmit={this.handleEaterySubmit}/>
