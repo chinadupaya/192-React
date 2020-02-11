@@ -58,7 +58,6 @@ const AllReviews = (props) =>{
                 },
                 body:JSON.stringify(body)
             }).then((response)=>{return response.json()});
-            this.props.history.push('/');
             
         }
         

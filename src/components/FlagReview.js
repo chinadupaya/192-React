@@ -90,8 +90,8 @@ export default function FlagReview(props) {
           
           <div className={classes.paper}>
             <form noValidate autoComplete="off"
-                onSubmit={(e)=> {e.preventDefault();props.handleReviewFlag(value + ": " + formFields.why_flag_text.value);
-                }}>
+                onSubmit={(e)=> {props.handleReviewFlag(value + ": " + formFields.why_flag_text.value);
+                e.target.reset(); handleClose();}}>
               <Typography component="h4"variant="h4">
                 What's wrong with this review?
               </Typography>
