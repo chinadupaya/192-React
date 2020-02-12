@@ -13,6 +13,7 @@ of the Philippines, Diliman for the AY 2019-
 1/25/20: Annysia Dupaya - Integrated with API
 1/30/20: Dylan Bayona - Reviewed code
 2/6/20: Annysia Dupaya - Added Flag Eatery
+2/12/20: Dylan Bayona - Reviewed code
 
 ---ABOUT---
 File creation date: 1/20/20
@@ -101,12 +102,21 @@ export default class Eatery extends Component {
     Return value: JSON response
     */
     handleEateryFlag(why_flag){
-        /* ---VARIABLE---
+		/* ---METHOD---
+		Name: notify
+		Routine creation date: 2/6/20
+		Purpose of the routine: Provides notification for flagged review
+		List of calling arguments: N/A
+		List of required files/database tables: N/A
+		Return value: N/A, shows notification
+		*/
+        const notify = () => {
+			toast.success("Your report has been submitted you can no longer see this eatery.");
+		}
+		
+		/* ---VARIABLE---
         body: contains the reason to flag the eatery
         */  
-       const notify = () => {
-        toast.success("Your report has been submitted you can no longer see this eatery.");
-      }
         let body = {why_flag:why_flag};
         fetch('http://localhost:5000/eatery/'+this.props.match.params.id+'/flag',{
             method: 'PUT',
