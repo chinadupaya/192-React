@@ -11,6 +11,7 @@ of the Philippines, Diliman for the AY 2019-
 ---HISTORY---
 1/27/20: Annysia Dupaya - Created component
 2/5/20: Annysia Dupaya - Added styling
+2/12/20: Dylan Bayona - Reviewed code
 
 ---ABOUT---
 File creation date: 1/20/20
