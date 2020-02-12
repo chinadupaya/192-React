@@ -10,7 +10,15 @@ of the Philippines, Diliman for the AY 2019-
 2020 
 
 ---HISTORY---
-2/6/20: ANnysia Dupaya - Created component
+2/6/20: Annysia Dupaya - Created component
+2/12/20: Dylan Bayona - Reviewed code
+
+---ABOUT---
+File creation date: 2/6/20
+Development Group: Group 1 - RUPE
+Client Group: Ma. Rowena C. Solamo
+This React.js component is for flagging a review.
+This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,6 +32,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import {Link} from 'react-router-dom';
+
 /* ---VARIABLE---
   useStyles: contains the styling of this component
 */  
@@ -41,30 +50,68 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
+/* ---METHOD---
+  Name: FlagReview
+  Routine creation date: 2/6/20
+  Purpose of the routine: Provides functionality to flag a review
+  List of calling arguments: props
+  List of required files/database tables: Review
+  Return value: Rendered page with flagged review dialogs
+*/
 export default function FlagReview(props) {
+  /* ---VARIABLE---
+    classes: contains styles
+  */  
   const classes = useStyles();
+  
   /* ---VARIABLE---
     formFields: contains the values for the form
   */  
   let formFields = {};
+  
   /* ---VARIABLE---
     value: contains the state of the form
+	setValue: contains next state
   */  
   const [value, setValue] = React.useState('rude');
 
+  /* ---METHOD---
+    Name: handleChange
+    Routine creation date: 2/4/20
+    Purpose of the routine: Handles changes
+    List of calling arguments: event
+	List of required files/database tables: N/A
+	Return value: N/A
+  */
   const handleChange = event => {
     setValue(event.target.value);
   };
+  
   /* ---VARIABLE---
     [open, setOpen]: changes the state of the modal if visible or not
   */  
   const [open, setOpen] = React.useState(false);
 
+  /* ---METHOD---
+    Name: handleOpen
+    Routine creation date: 2/6/20
+    Purpose of the routine: Changes variable setOpen to true
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: N/A
+  */
   const handleOpen = () => {
     setOpen(true);
   };
 
+  /* ---METHOD---
+    Name: handleClose
+    Routine creation date: 2/6/20
+    Purpose of the routine: Changes variable setOpen to false
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: N/A
+  */
   const handleClose = () => {
     setOpen(false);
   };
