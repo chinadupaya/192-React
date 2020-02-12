@@ -13,6 +13,7 @@ of the Philippines, Diliman for the AY 2019-
 1/25/20: Annysia Dupaya - Integrated API
 1/29/20: Dylan Bayona - Reviewed code
 2/6/20: Annysia Dupaya - Added ToastContainer
+2/12/20: Dylan Bayona - Reviewed code
 
 ---ABOUT---
 File creation date: 1/20/20
