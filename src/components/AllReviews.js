@@ -46,6 +46,7 @@ const AllReviews = (props) =>{
     var reviews = props.reviews.map((review)=>{
         const handleReviewFlag=(why_flag)=>{
             console.log("is it running")
+            
             let body = {why_flag:why_flag};
             fetch('http://localhost:5000/eatery/'
             +review.eatery_id

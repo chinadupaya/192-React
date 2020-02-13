@@ -12,6 +12,7 @@ of the Philippines, Diliman for the AY 2019-
 
 .Footer{
     background-color:rgb(214, 214, 214);
+    position:sticky;
     left:0;
     bottom:0;
     right:0;

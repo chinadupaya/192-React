@@ -31,8 +31,6 @@ import FlagEatery from './FlagEatery';
 import Box from '@material-ui/core/Box';
 import '../stylesheets/Eatery.css';
 import StarIcon from '@material-ui/icons/Star';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 export default class Eatery extends Component {
     /* ---METHOD---
@@ -76,7 +74,6 @@ export default class Eatery extends Component {
         .then((review)=>{
             this.addNewReview(review)
         })
-        this.props.flagCheck();
     }
     
     /* ---METHOD---
@@ -104,9 +101,7 @@ export default class Eatery extends Component {
         /* ---VARIABLE---
         body: contains the reason to flag the eatery
         */  
-       const notify = () => {
-        toast.success("Your report has been submitted you can no longer see this eatery.");
-      }
+        console.log(why_flag);
         let body = {why_flag:why_flag};
         fetch('http://localhost:5000/eatery/'+this.props.match.params.id+'/flag',{
             method: 'PUT',
@@ -117,8 +112,7 @@ export default class Eatery extends Component {
         }).then((response)=>{return response.json()});
         
         this.props.history.push("/eatery"); 
-         
-        notify();
+        
         this.props.flagCheck2();
         
     }

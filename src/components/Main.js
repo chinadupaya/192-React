@@ -32,6 +32,7 @@ import Navbar from './Navbar';
 import AddEatery from './AddEatery';
 import AllEateries from './AllEateries';
 import Footer from './Footer';
+import Admin from './Admin';
 
 class Main extends Component{
     /* ---METHOD---
@@ -129,6 +130,9 @@ class Main extends Component{
                         </Route>
                         <Route path="/add-eatery">
                             <AddEatery handleEaterySubmit={this.handleEaterySubmit}/>
+                        </Route>
+                        <Route path="/admin">
+                            <Admin eateries={this.state.eateries}/>
                         </Route>
                     </Switch>
                     <Footer/>

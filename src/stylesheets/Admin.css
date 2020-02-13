@@ -9,37 +9,31 @@ of the Philippines, Diliman for the AY 2019-
 2020 
 
 ---HISTORY---
-1/27/20: Annysia Dupaya - Created file, added styling
+2/13/20: Annysia Dupaya - Created file, added styling
 */
+.adminHeader{
+    background-color:yellow;
+    padding:1em;
+}
+
+.eateryActions{
+    margin-top: 0.5em;
+}
 .eateriesContainer{
     display: flex;
     flex-wrap:wrap;
 }
 .eateryBox{
     width:30%;
-    margin:1em;
-    padding:0.5em;
+    margin:0.5em;
     display:flex;
     flex-wrap:wrap;
     padding-top:0.5em;
 }
 .subBox{
     width:50%;
-    overflow:hidden;
 }
-@media only screen and (max-width: 735px){
-    .eateryBox{
-        width:80%
-    }
-    .subBox{
-        width:100%
-    }
-}
-@media only screen and (max-width:1031px){
-    .eateryBox{
-        width:45%
-    }
-    .subBox{
-        width:100%
-    }
+.subBox button{
+    margin-top:0.3em;
+    overflow: hidden;
 }
