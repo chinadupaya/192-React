@@ -12,6 +12,7 @@ of the Philippines, Diliman for the AY 2019-
 1/20/20: Annysia Dupaya - Created component
 1/21/20: Annysia Dupaya - Added styling
 1/25/20: Annysia Dupaya - Fixed routes
+2/24/20: ANnysia DUpaya - added search
 
 ---ABOUT---
 File creation date: 1/20/20
@@ -20,7 +21,7 @@ Client Group: Ma. Rowena C. Solamo
 This React.js component is for the styling and placement of the navigation bar.
 This software's overall purpose is to provide a clean frontend for our system, RUPE.
 */
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Link
 } from "react-router-dom";
@@ -108,23 +109,24 @@ List of calling arguments: N/A
 List of required files/database tables: N/A
 Return value: rendered navbar
 */
-export default function Navbar() {
+export default function Navbar(props) {
     /* ---VARIABLE---
     classes; holds useStyles variable
     */    
     const classes = useStyles();
+    const [searchValue, updateSearchValue] = useState('');
   
     /* ---VARIABLE---
     anchorEl; contains anchor
     setAnchorEl; used to change anchor
     */    
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
   
     /* ---VARIABLE---
     mobileMoreAnchorEl; contains mobile anchor
     setmobileMoreAnchorEl; used to change mobile anchor
     */      
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
     /*const isMenuOpen = Boolean(anchorEl); */
   
     /* ---VARIABLE---
@@ -188,6 +190,15 @@ export default function Navbar() {
         </MenuItem>  
       </Menu>
     )
+    const Search=(word)=>{
+      props.SearchMain(word);
+    }
+    const keyPress = (e) =>{
+      if(e.keyCode == 13){
+        console.log(searchValue);
+        Search(searchValue);
+     }
+    }
 
     return(
         <div className = {classes.grow}>
@@ -207,6 +218,11 @@ export default function Navbar() {
                                 root: classes.inputRoot,
                                 input: classes.inputInput,
                             }}
+                            value={searchValue}
+                            onChange={(e) => {
+                              updateSearchValue(e.target.value); 
+                            }}
+                            onKeyDown={keyPress}
                             inputProps={{ 'aria-label': 'search' }}
                         />
                     </div>
