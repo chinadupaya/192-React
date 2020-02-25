@@ -21,7 +21,7 @@ This software's overall purpose is to provide a clean frontend for our system, R
 */
 import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-import '../stylesheets/Admin.css';
+//import '../stylesheets/Admin.css';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Box from '@material-ui/core/Box';

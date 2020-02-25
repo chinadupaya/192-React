@@ -36,6 +36,7 @@ import AddEatery from './AddEatery';
 import AllEateries from './AllEateries';
 import Footer from './Footer';
 import SearchResults from './SearchResults';
+import Admin from './Admin';
 
 class Main extends Component{
     /* ---METHOD---
@@ -52,6 +53,7 @@ class Main extends Component{
             eateries:[],
             searchResults:[],
             searchWord:'',
+            flaggedReviews:[],
             redirect: false
         }; 
         this.handleEaterySubmit = this.handleEaterySubmit.bind(this)
@@ -123,6 +125,9 @@ class Main extends Component{
        await fetch('http://localhost:5000/eatery')
       .then((response) => {return response.json()})
       .then((data) => {this.setState({ eateries: data }) });
+      fetch('http://localhost:5000/review/flagged')
+      .then((response)=>{return response.json()})
+      .then((data)=>{this.setState({flaggedReviews:data})})
     }
     
     /* ---METHOD---
@@ -154,6 +159,9 @@ class Main extends Component{
                         </Route>
                         <Route path="/search">
                             <SearchResults searchResults={this.state.searchResults} searchWord = {this.state.searchWord}/>
+                        </Route>
+                        <Route path="/admin">
+                            <Admin eateries={this.state.eateries} flaggedReviews={this.state.flaggedReviews}/>
                         </Route>
                     </Switch>
                     <Footer/>
