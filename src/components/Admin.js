@@ -106,6 +106,7 @@ const Admin=(props)=>{
                 'Content-type': 'application/json'
             }
             })
+            window.location.reload(true);
         }
         if(!fReview.flag){
             return null;
