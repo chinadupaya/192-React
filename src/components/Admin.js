@@ -76,6 +76,7 @@ const Admin=(props)=>{
                 'Content-type': 'application/json'
             }
             })
+            window.location.reload(true);
         }
         if(!eatery.flag){
             return null;
