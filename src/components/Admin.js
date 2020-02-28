@@ -28,7 +28,14 @@ import Box from '@material-ui/core/Box';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-
+/* ---METHOD---
+Name: TabPanel
+Routine creation date: 2/26/20
+Purpose of the routine: Provides styling and generates tab panel components
+List of calling arguments: props
+List of required files/database tables: N/A
+Return value: tab panel components
+*/
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
   
@@ -51,14 +58,28 @@ function TabPanel(props) {
     index: PropTypes.any.isRequired,
     value: PropTypes.any.isRequired,
   };
-  
+  /* ---METHOD---
+    Name: a11yProps
+    Routine creation date: 2/26/20
+    Purpose of the routine: Provides functionality to Admin,styles tabs
+    List of calling arguments: index
+    List of required files/database tables: N/A
+    Return value: styling for tabs
+    */
   function a11yProps(index) {
     return {
       id: `full-width-tab-${index}`,
       'aria-controls': `full-width-tabpanel-${index}`,
     };
   }
-
+/* ---METHOD---
+Name: Admin
+Routine creation date: 2/26/20
+Purpose of the routine: Provides functionality to whole application
+List of calling arguments: props
+List of required files/database tables: N/A
+Return value: Returns Admin component
+*/
 const Admin=(props)=>{
 
     let count=0;
@@ -68,7 +89,23 @@ const Admin=(props)=>{
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    /* ---METHOD---
+    Name: eateries
+    Routine creation date: 2/26/20
+    Purpose of the routine: Creates list of flagged eateries
+    List of calling arguments: props
+    List of required files/database tables: N/A
+    Return value: rendered eateries
+    */
     var eateries = props.eateries.map((eatery)=>{
+        /* ---METHOD---
+        Name: handleEateryUnflag
+        Routine creation date: 2/26/20
+        Purpose of the routine: Provides functionality to Admin, unflags a flagged eatery
+        List of calling arguments: props
+        List of required files/database tables: N/A
+        Return value: null
+        */
         function handleEateryUnflag(){
             fetch('http://localhost:5000/eatery/'+eatery.id+'/unflag',{
             method: 'PUT',
@@ -93,8 +130,24 @@ const Admin=(props)=>{
             </Box>
         )
     })
+    /* ---METHOD---
+    Name: AddEatery
+    Routine creation date: 1/20/20
+    Purpose of the routine: Provides functionality to Admin, renders flagged Reviews
+    List of calling arguments: props
+    List of required files/database tables: N/A
+    Return value: list of flagged reviews
+    */
 
     var flaggedReviews = props.flaggedReviews.map((fReview) =>{
+        /* ---METHOD---
+        Name: handleReviewUnflag
+        Routine creation date: 2/26/20
+        Purpose of the routine: Provides functionality to Admin, unflags flagged reviews
+        List of calling arguments: props
+        List of required files/database tables: N/A
+        Return value: null
+        */
         function handleReviewUnflag(){
             // /eatery/<int:e_id>/review/<int:r_id>/unflag'
             fetch('http://localhost:5000/eatery/'
