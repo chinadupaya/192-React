@@ -14,6 +14,8 @@ of the Philippines, Diliman for the AY 2019-
 1/25/20: Annysia Dupaya - Integrated with API
 2/6/20: Annysia Dupaya - DOes not show eatery if flagged
 2/11/20: Dylan Bayona - Reviewed code
+2/24/20: Annysia Dupaya - Added search
+2/27/20: Dylan Bayona - Reviewed code
 
 ---ABOUT---
 File creation date: 1/20/20

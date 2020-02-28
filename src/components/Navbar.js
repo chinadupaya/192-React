@@ -13,6 +13,7 @@ of the Philippines, Diliman for the AY 2019-
 1/21/20: Annysia Dupaya - Added styling
 1/25/20: Annysia Dupaya - Fixed routes
 2/24/20: ANnysia DUpaya - added search
+2/26/20: Dylan Bayona - Reviewed code
 
 ---ABOUT---
 File creation date: 1/20/20
@@ -190,9 +191,27 @@ export default function Navbar(props) {
         </MenuItem>  
       </Menu>
     )
+    
+    /* ---METHOD---
+    Name: Search
+    Routine creation date: 2/24/2020
+    Purpose of the routine: Provides eatery search functionality
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: list of eateries with queried text
+    */     
     const Search=(word)=>{
       props.SearchMain(word);
     }
+    
+    /* ---METHOD---
+    Name: keyPress
+    Routine creation date: 2/24/20
+    Purpose of the routine: Provides eatery search functionality
+    List of calling arguments: N/A
+    List of required files/database tables: N/A
+    Return value: list of eateries with queried text
+    */     
     const keyPress = (e) =>{
       if(e.keyCode == 13){
         console.log(searchValue);
