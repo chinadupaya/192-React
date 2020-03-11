@@ -217,13 +217,13 @@ const Admin=(props)=>{
                 phone+"");
 			    e.target.reset();}}>
                <div className="field">
-                     <TextField id="outlined-basic" inputRef={input => formFields.name = input} label={eatery.name} variant="outlined" />
+                     <TextField id="outlined-basic" defaultValue={eatery.name} inputRef={input => formFields.name = input} label="Eatery Name" variant="outlined" />
                 
                      {/* <input ref={input => formFields.name = input} type="text" id="name" placeholder="Name" /> */}
                </div>
                <div className="field">
                     <InputLabel>Address</InputLabel>
-                    <Select native className="form-control"id="select1" inputRef={input => formFields.address = input}>
+                    <Select native className="form-control"id="select1" defaultValue={eatery.address} inputRef={input => formFields.address = input}>
                          <option>College of Architecture</option>
                          <optgroup label="Archaeological Studies Program">
                               <option>Albert Hall</option>
