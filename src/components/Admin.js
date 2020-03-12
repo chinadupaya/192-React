@@ -285,7 +285,7 @@ const Admin=(props)=>{
                      onlyCountries={['ph']} 
                      onChange={(e)=>{setPhone(e);}}/>
                  </div>
-                 <button className="ui primary button"type="submit">Edit and Unflag Eatery</button>
+                 <button className="ui primary button"type="submit">Edit Eatery</button>
                </form>
            </div>
            </Fade>
