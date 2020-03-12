@@ -280,7 +280,7 @@ const Admin=(props)=>{
                  <div className="field">
                  <MuiPhoneNumber 
                      //inputRef={input => formFields.contact = input} 
-                     value = {phone}
+                     value = {eatery.contact}
                      defaultCountry={'ph'} 
                      onlyCountries={['ph']} 
                      onChange={(e)=>{setPhone(e);}}/>
@@ -292,6 +292,7 @@ const Admin=(props)=>{
             </Modal>
             <div className="eateryInfo subBox">
                 <Typography component="h5" variant="h5"><strong>{eatery.name}</strong></Typography>
+                
                 {eatery.why_flag}
             </div>
             <div className="eateryActions subBox">
